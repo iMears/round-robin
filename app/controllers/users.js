@@ -1,22 +1,25 @@
 const User = require('../models/user');
 
-const usersController = {
-  create,
-  index,
-  show,
-};
-
 async function create(req, res, next) {
-
   try {
     const user = await User.create({ ...req.body });
 
     res.json(user);
-  } catch(error) {
-    res.status(500).send({ message: error })
+  } catch({ message }) {
+    res.status(500).send({ message })
   }
+};
 
-  res.json(user);
+async function destroy(req, res, next) {
+  const id = req.params.id;
+
+  try {
+    const user = await User.deleteOne({ _id: id });
+
+    res.json(user);
+  } catch({ message }) {
+    res.status(500).send({ message })
+  }
 };
 
 async function index(req, res, next) {
@@ -38,4 +41,9 @@ async function show(req, res, next) {
 };
 
 
-module.exports = usersController;
+module.exports = {
+  create,
+  destroy,
+  index,
+  show,
+};
