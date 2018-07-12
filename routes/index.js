@@ -1,6 +1,4 @@
-const express = require('express');
-const router = express.Router();
-const homeController = require('../app/controllers').home
+const router = require('express').Router();
 
 router.use('/', require('./home'));
 router.use('/users', require('./users'));

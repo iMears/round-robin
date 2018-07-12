@@ -1,6 +1,6 @@
 const homeController = {};
 
-homeController.indexAction = (req, res, next) => {
+homeController.index = (req, res, next) => {
   res.render('../views/index', { title: 'Round Robin' });
 };
 

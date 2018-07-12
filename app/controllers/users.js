@@ -1,6 +1,6 @@
 const usersController = {};
 
-usersController.indexAction = (req, res, next) => {
+usersController.index = (req, res, next) => {
   const users = [
     {
       name: 'Elizabeth',

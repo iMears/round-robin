@@ -1,8 +1,7 @@
-const express = require('express');
-const router = express.Router();
-const usersController = require('../app/controllers').users;
+const router = require('express').Router();
+const { users: { index } } = require('../app/controllers');
 
 /* GET /users */
-router.get('/', usersController.indexAction);
+router.get('/', index);
 
 module.exports = router;
