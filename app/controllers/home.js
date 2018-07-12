@@ -1,6 +1,8 @@
-const homeController = {};
+const homeController = {
+  index,
+};
 
-homeController.index = (req, res, next) => {
+function index(req, res, next) {
   res.render('../views/index', { title: 'Round Robin' });
 };
 

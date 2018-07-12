@@ -1,23 +1,18 @@
-const usersController = {};
+const User = require('../models/user');
 
-usersController.index = (req, res, next) => {
-  const users = [
-    {
-      name: 'Elizabeth',
-      age: 29,
-      height: '6\''
-    },
-    {
-      name: 'Max',
-      age: 29,
-      height: '6\' 5"'
-    },
-    {
-      name: 'Gary',
-      age: 39,
-      height: '5\' 11"'
-    }
-  ];
+const usersController = {
+  create,
+  index,
+};
+
+async function create(req, res, next) {
+  const user = await User.create({ ...req.body });
+
+  res.json(user);
+};
+
+async function index(req, res, next) {
+  const users = await User.find();
 
   res.json(users);
 };
