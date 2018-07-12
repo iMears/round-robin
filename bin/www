@@ -1,10 +1,11 @@
+require('dotenv').config();
 const app = require('../app');
 const debug = require('debug')('round-robin:server');
 const http = require('http');
 const mongoose = require('mongoose');
 
 // Connect to mongoDB
-mongoose.connect('mongodb://localhost:27017/round-robin', { useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
 const db = mongoose.connection;
 db.on('error', error => console.log(`connection error: ${error}`));
 db.once('open', () => require('../app/models'));
