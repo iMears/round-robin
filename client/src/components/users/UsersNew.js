@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Button, Form, Message } from 'semantic-ui-react'
+import { Button, Form, Header, Icon, Message } from 'semantic-ui-react'
 
-class UsersCreate extends Component {
+class UsersNew extends Component {
   state = {
     firstName: '',
     lastName: '',
@@ -31,8 +31,16 @@ class UsersCreate extends Component {
   render() {
     const { firstName, lastName, email } = this.state;
     return (
-      <div>
-        <Message attached header='New User' content='Fill out the form below to create a new user'/>
+      <div style={{ maxWidth: 600}}>
+        <Message attached>
+          <Header as='h3'>
+            <Icon name='user' />
+            <Header.Content>
+              New User
+              <Header.Subheader>Fill out the form below to create a new user</Header.Subheader>
+            </Header.Content>
+          </Header>
+        </Message>
         <Form className='attached fluid segment'>
           <Form.Group widths='equal'>
             <Form.Input fluid label='First Name' placeholder='First Name' type='text' name='firstName' value={firstName} onChange={this.onChange} />
@@ -46,4 +54,4 @@ class UsersCreate extends Component {
   }
 }
 
-export default UsersCreate;
+export default UsersNew;
