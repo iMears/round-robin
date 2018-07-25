@@ -44,7 +44,7 @@ class UsersIndex extends Component {
   render() {
     return (
       <div className="users-index">
-        <Message attached>
+        <Message>
           <Header as='h3'>
             <Button floated='right' color='blue' onClick={() => this.props.history.push('/users/new')}>New User</Button>
             <Icon name='users' />

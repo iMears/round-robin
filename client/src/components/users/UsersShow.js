@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Form, Header, Icon, Message } from 'semantic-ui-react'
+import moment from 'moment';
 
 class UsersShow extends Component {
   state = {
@@ -25,7 +26,7 @@ class UsersShow extends Component {
   }
 
   render() {
-    const { user: { firstName, lastName, email, id }, title } = this.state;
+    const { user: { firstName, lastName, email, id, createdAt }, title } = this.state;
 
     return (
       <div style={{ maxWidth: 600}}>
@@ -34,7 +35,7 @@ class UsersShow extends Component {
             <Icon name='user' />
             <Header.Content>
               { title }
-              <Header.Subheader>Details about this user</Header.Subheader>
+              <Header.Subheader>Member since { moment(createdAt).format('MMMM YYYY') }</Header.Subheader>
             </Header.Content>
           </Header>
         </Message>

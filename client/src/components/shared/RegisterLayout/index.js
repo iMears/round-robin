@@ -13,7 +13,7 @@ class RegisterLayout extends Component {
   render() {
     return (
       <div style={{ maxWidth: 600}}>
-        <Message attached header='Welcome to Round Robin!' content='Fill out the form below to sign up for a new account' />
+        <Message header='Welcome to Round Robin!' content='Fill out the form below to sign up for a new account' />
         <Form className='attached fluid segment'>
           <Form.Group widths='equal'>
             <Form.Input fluid label='First Name' placeholder='First Name' type='text' />

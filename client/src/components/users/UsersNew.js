@@ -32,7 +32,7 @@ class UsersNew extends Component {
     const { firstName, lastName, email } = this.state;
     return (
       <div style={{ maxWidth: 600}}>
-        <Message attached>
+        <Message>
           <Header as='h3'>
             <Icon name='user' />
             <Header.Content>
