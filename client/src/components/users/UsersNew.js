@@ -17,7 +17,7 @@ class UsersNew extends Component {
   onSubmit = (e) => {
     e.preventDefault();
     console.log('this.state', this.state);
-    fetch('/users', {
+    fetch('/api/v1/users', {
       method: 'POST',
       body: JSON.stringify(this.state),
       headers: { 'Content-Type': 'application/json; charset=utf-8' },

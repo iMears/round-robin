@@ -12,7 +12,7 @@ class UsersEdit extends Component {
   };
 
   componentDidMount() {
-    fetch(`/users/${this.props.match.params.id}`)
+    fetch(`/api/v1/users/${this.props.match.params.id}`)
       .then(res => res.json())
       .then(user => this.setState({ user, title: `${user.firstName} ${user.lastName}` }))
       .catch(console.error);
@@ -28,7 +28,7 @@ class UsersEdit extends Component {
     event.preventDefault();
     const { user, user: { id } } = this.state;
 
-    fetch(`/users/${id}`, {
+    fetch(`/api/v1/users/${id}`, {
       method: 'PUT',
       body: JSON.stringify(user),
       headers: { 'Content-Type': 'application/json; charset=utf-8' },

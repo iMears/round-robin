@@ -13,7 +13,7 @@ class UsersShow extends Component {
   };
 
   componentDidMount() {
-    fetch(`/users/${this.props.match.params.id}`)
+    fetch(`/api/v1/users/${this.props.match.params.id}`)
       .then(res => res.json())
       .then(user => this.setState({ user, title: `${user.firstName} ${user.lastName}` }))
       .catch(console.error);

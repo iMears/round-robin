@@ -12,7 +12,7 @@ class UsersIndex extends Component {
   }
 
   fetchUsers = () => {
-    fetch('/users')
+    fetch('/api/v1/users')
       .then(res => res.json())
       .then(users => this.setState({ users }))
       .catch(console.error)
@@ -20,7 +20,7 @@ class UsersIndex extends Component {
 
   handleDeleteUser = (id) => {
     console.log('clicked');
-    fetch(`/users/${id}`, {
+    fetch(`/api/v1/users/${id}`, {
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json; charset=utf-8' },
     })
