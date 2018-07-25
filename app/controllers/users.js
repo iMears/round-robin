@@ -1,8 +1,8 @@
 const User = require('../models/user');
 
-async function create(req, res, next) {
+async function create({ body }, res) {
   try {
-    const user = await User.create(req.body);
+    const user = await User.create(body);
 
     res.json(user);
   } catch({ message }) {
@@ -10,11 +10,9 @@ async function create(req, res, next) {
   }
 };
 
-async function destroy(req, res, next) {
-  const id = req.params.id;
-
+async function destroy({ params: { id } }, res) {
   try {
-    const user = await User.deleteOne({ _id: id });
+    const user = await User.findByIdAndRemove(id);
 
     res.status(204).send({});
   } catch({ message }) {
@@ -22,7 +20,7 @@ async function destroy(req, res, next) {
   }
 };
 
-async function index(req, res, next) {
+async function index(req, res) {
   try {
     const users = await User.find();
 
@@ -32,11 +30,9 @@ async function index(req, res, next) {
   }
 };
 
-async function show(req, res, next) {
-  const id = req.params.id;
-
+async function show({ params: { id } }, res) {
   try {
-    const user = await User.findById({ _id: id });
+    const user = await User.findById(id);
 
     res.json(user);
   } catch({ message }) {
@@ -44,11 +40,9 @@ async function show(req, res, next) {
   }
 };
 
-async function update(req, res, next) {
-  const id = req.params.id;
-
+async function update({ params: { id }, body }, res) {
   try {
-    const user = await User.findOneAndUpdate({ _id: id }, req.body, { new: true });
+    const user = await User.findByIdAndUpdate(id, body, { new: true });
 
     res.json(user);
   } catch(error) {
